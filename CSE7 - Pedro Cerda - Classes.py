@@ -1,4 +1,3 @@
-#Class 1
 class Item(object):
     def __init__(self, name, value):
         self.name = name
@@ -6,7 +5,6 @@ class Item(object):
     def sell(self):
         print "You sell the %s for %d gold." % (self.name, self.value)
 
-#Class 2
 class Weapon(Item):
     def __init__(self, name, value, damage):
         super(Weapon, self).__init__(name, value)
@@ -14,7 +12,6 @@ class Weapon(Item):
     def attack(self, target):
         print "You attack %s for %d damage." % (target.name, self.damage)
         
-#Class 3 
 class Bomb(Weapon):
     def __init__(self, name, value, damage):
         super(Weapon, self).__init__(name, value)
@@ -23,7 +20,6 @@ class Bomb(Weapon):
         print "You have bombed %s and done %d damage." % (target.name, self.damage)
         target.take_damage(self.damage)
         
-#Class 4
 class Vehicle(Item):
     def __init__ (self, name, motor, material, vtype):
         self.motor = motor
@@ -31,7 +27,6 @@ class Vehicle(Item):
         self.name = name
         self.vtype = vtype
 
-#Class 5        
 class Car(Vehicle):
     def __init__(self, name, motor, material):
         super(Car, self). __init__(name, motor, material, "Car")
@@ -45,7 +40,6 @@ class Car(Vehicle):
         self.engine_status =True
         print "You turn the key and the engine turns on."
         
-#Class 6 
 class Character(Item):
     def __init__(self, name, hp, damage, attack_speed, armor):
         self.name = name
@@ -83,13 +77,29 @@ class Character(Item):
     def good(self):
         print "Good"
 
-#Class 7
 class Food(Item):
     def __init__(self, name, value, health):
         self.name = name
         self. value = value
         self.health = health
-#Class 8 
+
+class Armor(Item):
+    def __init__(self, name, value, durability):
+        self.name = name
+        self.value = value
+        self.durability = durability
+
+class Consumables(Item):
+    def __init__(self, name, value, amount):
+        self.name = name
+        self.value = value 
+        self.amount = amount
+        
+class HealthPotion(Consumables):
+    def _init__(self, name, value, amount, health_boost):
+        super(HealthPotion, self). __init__(name, value, amount)
+        self.health_boost = health_boost
+
         
 bobby = Bomb("Bobby's Bomb", 2, 20)
 cookie = Food("Cookie", 15, 20)
