@@ -76,6 +76,11 @@ class Character(Item):
             print "You can not eat anymore, or you may explode."
     def good(self):
         print "Good"
+        def drink(self, consumable):
+            if consumable == HealthPotion:
+                self.health += consumable.health_boost
+                print "You consumed the %s and your health was restored \
+by %s, you now have %s health." % (HealthPotion.name , HealthPotion.health_boost, self.health)
 
 class Food(Item):
     def __init__(self, name, value, health):
@@ -100,9 +105,9 @@ class HealthPotion(Consumables):
         super(HealthPotion, self). __init__(name, value, amount)
         self.health_boost = health_boost
 
-        
+edw = HealthPotion("Health Restoration Potion", 25, 2, 40)
 bobby = Bomb("Bobby's Bomb", 2, 20)
 cookie = Food("Cookie", 15, 20)
 bobe = Car("Bobby's Car", "V8", "Carbon Fiber")
 rob = Character('Roberto Moreno', 100, 100, 2, 200)
-bob = Character('Bobby Vixathep', 100, 20, 2, 0)
+bob = Character('Bobby Vixathep', 150, 20, 2, 100)
